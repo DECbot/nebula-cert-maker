@@ -1,0 +1,181 @@
+---
+### Network Definitions ###
+### CA Cert ###
+ca:
+  name: "Fauxbox.net"
+  duration: "2160h"
+### Lighthouse Certs ###
+lighthouse-hosts:
+  - name: "Radon"
+    ip: "192.168.50.86/24"
+    arch: "nebula-linux-amd64.tar.gz"
+    note: "VPS lightouse"
+### Host Certs ###
+hosts:
+  - name: "Hydrogen"
+    ip: "192.168.50.1/24"
+    arch: "nebula-linux-arm64.tar.gz" 
+    groups:
+      - "servers"
+    note: "router"
+  - name: "Helium"
+    ip: "192.168.50.2/24"
+    arch: "nebula-linux-amd64.tar.gz"
+    groups:
+      - "servers"
+      - "ha"
+    note: "backup server"
+  - name: "Lithium"
+    ip: "192.168.50.3/24"
+    arch: "nebula-linux-amd64.tar.gz"
+    groups:
+      - "servers"
+    note: "NAS/docker server"
+  - name: "Beryllium"
+    ip: "192.168.50.4/24"
+    arch: "nebula-linux-arm64.tar.gz" 
+    groups:
+      - "servers"
+    note: "Home Assistant= owner of ha group"
+  - name: "Boron"
+    ip: "192.168.50.5/24"
+    arch: "nebula-linux-arm64.tar.gz" 
+    groups:
+      - "servers"
+    note: "Octoprint server- owner of 3dprints group"
+  - name: "Carbon"
+    ip: "192.168.50.6/24"
+    arch: "nebula-linux-amd64.tar.gz"
+    groups:
+      - "laptop"
+      - "3dprints"
+    note: "kid's laptop"
+  - name: "Nitrogen"
+    ip: "192.168.50.7/24"
+    arch: "nebula-linux-arm64.tar.gz" 
+    groups:
+      - "servers"
+    note: "raspberry pi VM server"
+  - name: "Oxygen"
+    ip: "192.168.50.8/24"
+    arch: "nebula-linux-arm64.tar.gz" 
+    groups:
+      - "servers"
+    note: "test VM on raspberry pi"
+  - name: "Fluorine"
+    ip: "192.168.50.9/24"
+    arch: "nebula-linux-arm64.tar.gz" 
+    groups:
+      - "servers"
+    note: "cert vm"
+  - name: "Neon"
+    ip: "192.168.50.10/24"
+    arch: "nebula-linux-amd64.tar.gz"
+    groups:
+      - "servers"
+    note: "proxmox server"
+  - name: "Magnesium"
+    ip: "192.168.50.12/24"
+    arch: "nebula-linux-amd64.tar.gz"
+    groups:
+      - "servers"
+    note: "Pihole VM"
+  - name: "Aluminum"
+    ip: "192.168.50.13/24"
+    arch: "nebula-linux-amd64.tar.gz"
+    groups:
+      - "servers"
+      - "guests"
+    note: "Runs docker apps for the world"
+  - name: "Silicon"
+    ip: "192.168.50.14/24"
+    arch: "android"
+    groups:
+      - "mobile"
+      - "ha"
+      - "3dprints"
+    notes: "Android Phone (Pixel 7 Pro)"
+  - name: "Sulphur"
+    ip: "192.168.50.16/24"
+    arch: "nebula-linux-amd64.tar.gz"
+    groups:
+      - "laptop"
+      - "ha"
+      - "3dprints"
+    note: "personal laptop"
+  - name: "Chlorine"
+    ip: "192.168.50.17/24"
+    arch: "android"
+    groups:
+      - "mobile"
+      - "ha"
+      - "3dprints"
+    note: "Android phone (OnePlus 8T)"
+  - name: "Potassium"
+    ip: "192.168.50.19/24"
+    arch: "nebula-linux-amd64.tar.gz"
+    groups:
+      - "servers"
+      - "guests"
+    note: "Runs docker apps for the world"
+  - name: "Malakhi"
+    ip: "192.168.50.233/24"
+    arch: "nebula-linux-386.tar.gz" 
+    groups:
+      - "servers"
+    note: "legacy production server"
+
+
+  - name: "imac_m1"
+    ip: "192.168.50.235/24"
+    arch: "nebula-darwin.zip"
+    groups:
+      - "laptop"
+      - "ha"
+    notes: "jess's desktop"
+  - name: "mb_m1"
+    ip: "192.168.50.236/24"
+    arch: "nebula-darwin.zip"
+    groups:
+      - "laptop"
+      - "ha"
+    notes: "jess's personal laptop"
+  - name: "iphone_jess"
+    ip: "192.168.50.237/24"
+    arch: "iphone"
+    groups:
+      - "mobile"
+      - "ha"
+    notes: "jess's iphone"
+  - name: "mbp_intel"
+    ip: "192.168.50.238/24"
+    arch: "nebula-darwin.zip"
+    groups:
+      - "laptop"
+    notes: "intel imac with more ram"
+  - name: "PF0JQ9D7_L460"
+    ip: "192.168.50.239/24"
+    arch: "nebula-windows-amd64.zip"
+    groups:
+      - "sauma"
+    notes: "sauma laptop"
+  - name: "PF2N2QE4"
+    ip: "192.168.50.240/24"
+    arch: "nebula-windows-amd64.zip"
+    groups:
+      - "laptop"
+    notes: "work laptop Carbon X1"
+  - name: "PF49FRWH"
+    ip: "192.168.50.241/24"
+    arch: "nebula-linux-amd64.tar.gz"
+    groups:
+      - "laptop"
+      - "ha"
+      - "3dprints"
+    notes: "work laptop"
+  - name: "R90JUMRX_CarbonX1"
+    ip: "192.168.50.242/24"
+    arch: "nebula-windows-amd64.zip"
+    groups:
+      - "sauma"
+    notes: "sauma laptop"
