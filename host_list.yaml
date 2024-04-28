@@ -74,6 +74,12 @@ hosts:
     groups:
       - "servers"
     note: "proxmox server"
+  - name: "Sodium"
+    ip: "192.168.50.11/24"
+    arch: "nebula-linux-amd64.tar.gz"
+    groups:
+      - "servers"
+    note: "proxmox server"
   - name: "Magnesium"
     ip: "192.168.50.12/24"
     arch: "nebula-linux-amd64.tar.gz"
