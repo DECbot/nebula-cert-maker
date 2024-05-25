@@ -100,6 +100,8 @@ hosts:
       - "mobile"
       - "ha"
       - "3dprints"
+    deviceCert: "../deploy/Silicon.pub"
+    makeQRCode: true
     notes: "Android Phone (Pixel 7 Pro)"
   - name: "Sulphur"
     ip: "192.168.50.16/24"
@@ -116,6 +118,8 @@ hosts:
       - "mobile"
       - "ha"
       - "3dprints"
+    deviceCert: "../deploy/Chlorine.pub"
+    makeQRCode: true
     note: "Android phone (OnePlus 8T)"
   - name: "Potassium"
     ip: "192.168.50.19/24"

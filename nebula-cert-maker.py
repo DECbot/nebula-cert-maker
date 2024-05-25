@@ -30,7 +30,7 @@ else:
     print('Usage: "nebula-cert-maker.py host_list.yaml"')
     exit()
 
-nebula_cert_cmd = "./nebula-cert"
+nebula_cert_cmd = "../nebula-cert"
 
 
 def ordered_load(stream, Loader=yaml.SafeLoader, object_pairs_hook=OrderedDict):
@@ -61,15 +61,20 @@ def ordered_dump(data, stream=None, Dumper=yaml.SafeDumper, **kwds):
 #print(ordered_dump(data, Dumper=yaml.SafeDumper))
 
 def make_cert(name, duration):
-    subprocess.call([nebula_cert_cmd, "ca", "-name", name, "-duration", duration])
-    print(nebula_cert_cmd, "ca", "-name", name, "-duration", duration)
+    subprocess.call([nebula_cert_cmd, "ca", "-name", name, "-duration", duration, "-out-qr", "ca.png"])
+    #print(nebula_cert_cmd, "ca", "-name", name, "-duration", duration, "-out-qr", "ca.png")
 
 def sign_lighthouse(name, ip):
     subprocess.call([nebula_cert_cmd, "sign", "-name", name, "-ip", ip])
     #print(nebula_cert_cmd, "sign", "-name", name, "-ip", ip)
 
-def sign_host(name, ip, groups):
-    subprocess.call([nebula_cert_cmd, "sign", "-name", name, "-ip", ip, "-groups", groups])
+def sign_host(name, ip, groups, deviceCert, makeQRCode):
+    if makeQRCode:
+        subprocess.call([nebula_cert_cmd, "sign", "-name", name, "-ip", ip, "-groups", groups, *(["-in-pub", deviceCert] if (deviceCert != False) else []), "-out-qr", (name+".png")])
+        print(nebula_cert_cmd, "sign", "-name", name, "-ip", ip, "-groups", groups, *(["-in-pub", deviceCert] if (deviceCert != False) else []), "-out-qr", (name+".png"))
+       
+    else:
+        subprocess.call([nebula_cert_cmd, "sign", "-name", name, "-ip", ip, "-groups", groups, *(["-in-pub", deviceCert] if (deviceCert != False) else [])])
     #print(nebula_cert_cmd, "sign", "-name", name, "-ip", ip, "-groups", groups)
 
 ca = data.get('ca')
@@ -89,4 +94,14 @@ for host in hosts:
         mygroups = mygroups+","+group
     
     mygroups = mygroups.lstrip(mygroups[0])
-    sign_host(host.get('name'),host.get('ip'),mygroups)
+
+    deviceCert = False
+
+    if "deviceCert" in host:
+            #print(host.get("name"), "has device cert.")
+            deviceCert = host.get("deviceCert")
+   
+    if "makeQRCode" in host and host.get("makeQRCode") == True:
+            sign_host(host.get('name'),host.get('ip'),mygroups,deviceCert,True)
+    else:
+        sign_host(host.get('name'),host.get('ip'),mygroups,deviceCert,False)
