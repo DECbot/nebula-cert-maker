@@ -100,7 +100,7 @@ hosts:
       - "mobile"
       - "ha"
       - "3dprints"
-    deviceCert: "../deploy/Silicon.pub"
+    deviceCert: "Silicon.pub"
     makeQRCode: true
     notes: "Android Phone (Pixel 7 Pro)"
   - name: "Sulphur"
@@ -111,16 +111,16 @@ hosts:
       - "ha"
       - "3dprints"
     note: "personal laptop"
-  - name: "Chlorine"
-    ip: "192.168.50.17/24"
-    arch: "android"
-    groups:
-      - "mobile"
-      - "ha"
-      - "3dprints"
-    deviceCert: "../deploy/Chlorine.pub"
-    makeQRCode: true
-    note: "Android phone (OnePlus 8T)"
+ #- name: "Chlorine"
+ #   ip: "192.168.50.17/24"
+ #   arch: "android"
+ #   groups:
+ #     - "mobile"
+ #     - "ha"
+ #     - "3dprints"
+ #   deviceCert: "../deploy/Chlorine.pub"
+ #   makeQRCode: true
+ #   note: "Android phone (OnePlus 8T)"
   - name: "Potassium"
     ip: "192.168.50.19/24"
     arch: "nebula-linux-amd64.tar.gz"
