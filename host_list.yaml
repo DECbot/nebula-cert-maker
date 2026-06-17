@@ -80,4 +80,4 @@ hosts:
       - "infrastructure"
     deviceCert: "Ceres.pub"
     makeQRCode: true
-    notes: "Android Phone (Pixel 7)"
+    note: "Android Phone (Pixel 7)"
