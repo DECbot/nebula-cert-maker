@@ -9,6 +9,15 @@ Nebula Cert Manager is a GUI tool to create and edit a yaml host list. It can al
 ## NebulaCertMaker.py vs NebulaCertManager.py
 NebulaCertManager.py is a useful tool to create your inital host list yaml file and setup your first Nebula mesh VPN. When you are satisfied with your host list, you can use it with NebulaCertMaker.py with your automation and configuration management software (like Ansible) to deploy certificates to your network.
 
+## Usage
+To generate all the certificates in the 'deploy' folder, navigate to the deploy folder. For any devices that require a certificate signing, like a mobile device, supply the devices' .pub certificate in the 'deploy' folder, or other folder as designated in the host_list.yaml file.
+
+Enter the following to generate certificates:
+
+```bash
+$ nebula-cert-maker.py host_list.yaml [/destination/directory]
+```
+
 ### Equivalent bash commands with NebulaCertManager/NebulaCertMaker
 
 Creating the site certificate.
