@@ -1,8 +1,15 @@
 ## Nebula Cert Maker
 
-The Nebula Cert Maker will create a new Nebula CA certificates and then generate and sign certificates for all hosts in the host list. 
+The Nebula Cert Maker is a commandline script will parse a host list yaml file, create a new Nebula CA certificate, and then generate and sign certificates for all hosts in the host list. 
 
-## Equivalent bash commands
+## Nebula Cert Manager
+
+Nebula Cert Manager is a GUI tool to create and edit a yaml host list. It can also generate a new Nebula CA certificate and host certificates.
+
+## NebulaCertMaker.py vs NebulaCertManager.py
+NebulaCertManager.py is a useful tool to create your inital host list yaml file and setup your first Nebula mesh VPN. When you are satisfied with your host list, you can use it with NebulaCertMaker.py with your automation and configuration management software (like Ansible) to deploy certificates to your network.
+
+### Equivalent bash commands with NebulaCertManager/NebulaCertMaker
 
 Creating the site certificate.
 
