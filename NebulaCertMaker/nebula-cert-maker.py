@@ -16,7 +16,7 @@ __version__ = '2'
 import shutil
 import sys
 
-library_path = "./lib"
+library_path = "../lib"
 if library_path not in sys.path:
     sys.path.insert(0, library_path)
 

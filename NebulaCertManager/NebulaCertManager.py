@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 import shutil
 
-library_path = "./lib" 
+library_path = "../lib" 
 if library_path not in sys.path:
         sys.path.insert(0, library_path)
 
